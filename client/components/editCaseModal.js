@@ -22,6 +22,7 @@ const EditCaseModal = ({
   setModalOpen,
   selectedCase,
   setSelectedCase,
+  category,
 }) => {
   const [scenarioValue, setScenarioValue] = useState('');
   const [inputDataValue, setInputDataValue] = useState('');
@@ -41,7 +42,7 @@ const EditCaseModal = ({
       data: inputDataValue,
       result: expectedResultValue,
     };
-    await data().updatePost('general', selectedCase.id, postData);
+    await data().updatePost(category, selectedCase.id, postData);
   }
 
   function closeModal() {

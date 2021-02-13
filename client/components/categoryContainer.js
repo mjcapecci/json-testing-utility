@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import styles from '../../styles/Home.module.css';
-import data from '../../utils/data';
-import EditCaseModal from '../../components/editCaseModal';
+import React, { useState, useEffect } from 'react';
+import styles from '../styles/Home.module.css';
+import data from '../utils/data';
+import EditCaseModal from '../components/editCaseModal';
 
-const Landing = () => {
+const CategoryContainer = ({ category }) => {
   const [cases, setCases] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedCase, setSelectedCase] = useState(null);
 
   useEffect(async () => {
-    const res = await data().getAll('landing');
+    const res = await data().getAll(category);
     setCases(res.data);
   }, []);
 
@@ -41,6 +41,7 @@ const Landing = () => {
         setModalOpen={setModalOpen}
         selectedCase={selectedCase}
         setSelectedCase={setSelectedCase}
+        category={category}
       />
     </>
   ) : (
@@ -48,4 +49,4 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+export default CategoryContainer;
