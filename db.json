@@ -1,0 +1,105 @@
+{
+  "general": [
+    {
+      "scenario": "User installs Quick Product Import",
+      "data": "A basic .CSV file",
+      "result": "User should consent to the data we need access to and be redirected to our app's terms of service page.",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "scenario": "User loads into app for the first time or before accepting our terms of service",
+      "data": null,
+      "result": "User should be presented with our terms of service.",
+      "passed": false
+    },
+    {
+      "id": 3,
+      "scenario": "User loads into app (after terms of service agreement)",
+      "data": null,
+      "result": "User should see landing page with drop zone. Redux should have their store information when sockets connect.",
+      "passed": false
+    }
+  ],
+  "landing": [
+    {
+      "id": 1,
+      "scenario": "User drops a compatible .csv file that does not require mapping into the drop zone",
+      "data": "Any .csv file with appropriate headers",
+      "result": "User should be brought to Verify Import or shown the Upload Consent Modal",
+      "passed": false
+    },
+    {
+      "id": 2,
+      "scenario": "User drops a compatible .csv file that does require mapping into the drop zone",
+      "data": "Any .csv file with extra or missing headers",
+      "result": "User should be brought to the Mapping screen",
+      "passed": false
+    },
+    {
+      "id": 3,
+      "scenario": "User drops a .csv file that will not meet requirements even after mapping",
+      "data": "Any .csv file with extra or missing headers",
+      "result": "User should be brought to the Mapping screen",
+      "passed": false
+    },
+    {
+      "id": 4,
+      "scenario": "User drops a filetype other than a .csv into the dropzone",
+      "data": null,
+      "result": "User should be see an error above the drop zone prompting for the use of a .csv",
+      "passed": false
+    },
+    {
+      "id": 5,
+      "scenario": "User clicks on Create Template button",
+      "data": null,
+      "result": "User should see a modal allowing them to download a template file.",
+      "passed": false
+    },
+    {
+      "id": 6,
+      "scenario": "User creates a template and attempts download",
+      "data": null,
+      "result": "User should be prompted to downlaod their created file.",
+      "passed": false
+    }
+  ],
+  "mapping": [
+    {
+      "id": 1,
+      "scenario": "In defining an unknown header, user selects a required or optional field",
+      "data": null,
+      "result": "Namespace and Value Type inputs should disappear",
+      "passed": false
+    },
+    {
+      "id": 2,
+      "scenario": "In defining an unknown header, user edits Namespace or Value Type metafield options",
+      "data": null,
+      "result": "A warning should appear next to the continue button prompting the user to save changes.",
+      "passed": false
+    },
+    {
+      "id": 3,
+      "scenario": "In defining an unknown header, user edits Namespace or Value Type metafield options",
+      "data": null,
+      "result": "A warning should appear next to the continue button prompting the user to save changes.",
+      "passed": false
+    },
+    {
+      "id": 4,
+      "scenario": "From an empty state, the value of Mapping Name is updated",
+      "data": null,
+      "result": "A warning should appear next to the continue button prompting the user to save changes.",
+      "passed": false
+    },
+    {
+      "id": 5,
+      "scenario": "From an empty state, the value of Mapping Name is updated and at least one Unknown Header value is edited.",
+      "data": null,
+      "result": "A warning should appear next to the continue button prompting the user to save changes, and a cutton should appear on the left side of the UI that allows users to save and continue.",
+      "passed": false
+    }
+  ]
+}
