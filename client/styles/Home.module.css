@@ -92,6 +92,7 @@
   transition: color 0.15s ease, border-color 0.15s ease;
   min-height: 15rem;
   max-height: 15rem;
+  min-width: 50rem;
   overflow: auto;
   background: rgb(238, 238, 238);
 }
@@ -118,10 +119,44 @@
   height: 1em;
 }
 
+/* OTHER STYLES */
+.topControls button {
+  margin: 0 1rem 1rem 0;
+}
+
+/* CARD DATA STYLES */
+.cardData {
+  background: #333;
+  border-radius: 10px;
+  padding: 1rem;
+  color: white;
+}
+
+.passFailButtons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.passFailButtons button {
+  margin: 0 1rem;
+}
+
 /* FORM STYLES */
 .modalForm {
   display: flex;
   flex-direction: column;
+}
+
+.modalForm textarea,
+.modalForm input {
+  margin: 1rem 0;
+  padding: 0.5rem;
+}
+
+.modalForm label {
+  /* margin: 1rem 0; */
 }
 
 @media (max-width: 600px) {

@@ -14,6 +14,8 @@ const customStyles = {
     marginRight: '-50%',
     width: '30rem',
     transform: 'translate(-50%, -50%)',
+    background: '#333',
+    color: 'white',
   },
 };
 
@@ -45,6 +47,12 @@ const EditCaseModal = ({
     await data().updatePost(category, selectedCase.id, postData);
   }
 
+  async function handleDelete() {
+    await data().deletePost(category, selectedCase.id);
+    closeModal();
+    location.reload();
+  }
+
   function closeModal() {
     setSelectedCase(null);
     setModalOpen(false);
@@ -58,12 +66,15 @@ const EditCaseModal = ({
       contentLabel='Edit Test Case'
     >
       <h2>Edit Test Case</h2>
-      <button onClick={closeModal}>close</button>
+      <button onClick={handleDelete} style={{ margin: '0 0 1rem 0' }}>
+        Delete
+      </button>
       <form className={styles.modalForm}>
         <label>Scenario:</label>
         <textarea
           value={scenarioValue}
           onChange={(e) => setScenarioValue(e.target.value)}
+          rows={5}
         ></textarea>
         <label>Input Data:</label>
         <input
@@ -72,10 +83,10 @@ const EditCaseModal = ({
           onChange={(e) => setInputDataValue(e.target.value)}
         />
         <label>Expected Result:</label>
-        <input
-          type='text'
+        <textarea
           value={expectedResultValue}
           onChange={(e) => setExpectedResultValue(e.target.value)}
+          rows={20}
         />
         <button onClick={submitEdit}>Submit</button>
       </form>

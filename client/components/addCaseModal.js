@@ -22,14 +22,6 @@ const AddCaseModal = ({ open, setModalOpen, category }) => {
   const [inputDataValue, setInputDataValue] = useState('');
   const [expectedResultValue, setExpectedResultValue] = useState('');
 
-  useEffect(() => {
-    if (selectedCase) {
-      setScenarioValue(selectedCase.scenario);
-      setInputDataValue(selectedCase.data || '');
-      setExpectedResultValue(selectedCase.result);
-    }
-  }, [selectedCase]);
-
   async function submitNewCase() {
     const postData = {
       scenario: scenarioValue,
@@ -40,7 +32,6 @@ const AddCaseModal = ({ open, setModalOpen, category }) => {
   }
 
   function closeModal() {
-    setSelectedCase(null);
     setModalOpen(false);
   }
 
@@ -51,8 +42,7 @@ const AddCaseModal = ({ open, setModalOpen, category }) => {
       style={customStyles}
       contentLabel='Edit Test Case'
     >
-      <h2>Edit Test Case</h2>
-      <button onClick={closeModal}>close</button>
+      <h2>Add Test Case</h2>
       <form className={styles.modalForm}>
         <label>Scenario:</label>
         <textarea
@@ -71,7 +61,7 @@ const AddCaseModal = ({ open, setModalOpen, category }) => {
           value={expectedResultValue}
           onChange={(e) => setExpectedResultValue(e.target.value)}
         />
-        <button onClick={submitEdit}>Submit</button>
+        <button onClick={submitNewCase}>Submit</button>
       </form>
     </Modal>
   );
