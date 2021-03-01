@@ -101,6 +101,13 @@
       "data": null,
       "result": "A warning should appear next to the continue button prompting the user to save changes, and a cutton should appear on the left side of the UI that allows users to save and continue.",
       "passed": false
+    },
+    {
+      "id": 6,
+      "scenario": "From a state in which an existing mapping is selected, user makes changes to metafield configurations and presses the UPDATE button",
+      "data": null,
+      "result": "The selected mapping should reset to 'None', but after re-selecting the newly updated mapping, the new changes should be in place.",
+      "passed": false
     }
   ],
   "upload": [],
